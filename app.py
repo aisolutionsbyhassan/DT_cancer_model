@@ -7,7 +7,7 @@ import numpy as np
 # ------------------------
 @st.cache_resource
 def load_model():
-    return joblib.load("Cancer.pkl")
+    return joblib.load("cancer.pkl")
 
 model = load_model()
 
