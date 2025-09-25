@@ -2,6 +2,9 @@
 
 A machine learning project that predicts whether a tumor is **Benign (non-cancerous)** or **Malignant (cancerous)** using the Breast Cancer dataset. This project includes a trained ML model, a Jupyter Notebook for training & analysis, and a **Streamlit web application** for easy predictions.  
 
+## 🌐 Try the Web App
+You can try the live app here: [Breast Cancer Prediction Web App](https://aisolutionsbyhassan-dt-cancer-model-app-lnqlng.streamlit.app/)
+
 ## 📌 Features  
 - End-to-end machine learning pipeline: data preprocessing, visualization, model training & evaluation, deployment with Streamlit  
 - User-friendly **web app interface**  
@@ -9,10 +12,11 @@ A machine learning project that predicts whether a tumor is **Benign (non-cancer
 
 ## 📂 Project Structure  
 
-📁 DT_cancer_model
-┣ 📜 app.py # Streamlit app
-┣ 📜 cancer.ipynb # Jupyter Notebook (model training & EDA)
-┣ 📜 cancer.pkl # Trained ML model
-┣ 📜 data.csv # Dataset used
-┣ 📜 requirements.txt # Dependencies
+📁 DT_cancer_model  
+┣ 📜 app.py # Streamlit app  
+┣ 📜 cancer.ipynb # Jupyter Notebook (model training & EDA)  
+┣ 📜 cancer.pkl # Trained ML model  
+┣ 📜 data.csv # Dataset used  
+┣ 📜 requirements.txt # Dependencies  
 ┗ 📜 README.md # Project documentation
+
