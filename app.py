@@ -37,19 +37,20 @@ st.markdown(
 # ------------------------
 st.sidebar.header("🔹 Input Patient Data")
 
+# ✅ Use only the 6 selected features
 feature_names = [
-    'radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean', 'smoothness_mean',
-    'compactness_mean', 'concavity_mean', 'concave points_mean', 'symmetry_mean',
-    'fractal_dimension_mean', 'radius_se', 'texture_se', 'perimeter_se', 'area_se',
-    'smoothness_se', 'compactness_se', 'concavity_se', 'concave points_se',
-    'symmetry_se', 'fractal_dimension_se', 'radius_worst', 'texture_worst',
-    'perimeter_worst', 'area_worst', 'smoothness_worst', 'compactness_worst',
-    'concavity_worst', 'concave points_worst', 'symmetry_worst', 'fractal_dimension_worst'
+    'concave points_mean',
+    'radius_worst',
+    'concavity_worst',
+    'texture_worst',
+    'perimeter_worst',
+    'perimeter_se'
 ]
 
-# Split inputs into two columns for better look
+# Two-column input layout for better design
 input_data = []
 col1, col2 = st.sidebar.columns(2)
+
 for i, feature in enumerate(feature_names):
     if i % 2 == 0:
         val = col1.number_input(f"{feature}", value=0.0, format="%.4f")
@@ -57,6 +58,7 @@ for i, feature in enumerate(feature_names):
         val = col2.number_input(f"{feature}", value=0.0, format="%.4f")
     input_data.append(val)
 
+# Convert input into numpy array
 features = np.array([input_data])
 
 # ------------------------
@@ -65,7 +67,9 @@ features = np.array([input_data])
 st.markdown("---")
 if st.button("🔍 Predict", use_container_width=True):
     prediction = model.predict(features)
-    if prediction[0] == "B":   # Benign
+
+    # Model was trained with LabelEncoder (0 = Benign, 1 = Malignant)
+    if prediction[0] == 0:
         st.success("✅ The prediction is: **Benign (Non-Cancerous)**")
         st.balloons()
     else:
@@ -79,7 +83,8 @@ st.markdown(
     """
     ---
     💡 *This app is for educational/demo purposes only.  
-    It should not be used as a substitute for professional medical advice.*
+    It should not be used as a substitute for professional medical advice.*  
     """
 )
+
 
